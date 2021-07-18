@@ -1,10 +1,15 @@
+import { useContext } from 'react'
 import lista from '../assets/lista.png'
 import logo from '../assets/logo.jpg'
 import '../styles/auth.scss'
 import { Button } from '../components/button'
 import { Link } from 'react-router-dom'
+import { authContext } from '../App'
 
 export function NewList(){
+
+    const { user } = useContext(authContext)
+
     return(
         <div id="page-auth">
             <aside>
@@ -15,6 +20,7 @@ export function NewList(){
             <main>
                 <div className="main-content">
                     <img src={logo} alt="Logotipo"/>
+                    <h1>{user?.name}</h1>
                     <h2>Crie uma nova lista</h2>
                     <form>
                         <input
