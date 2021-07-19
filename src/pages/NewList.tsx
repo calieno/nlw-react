@@ -3,6 +3,7 @@ import lista from '../assets/lista.png'
 import logo from '../assets/logo.jpg'
 import '../styles/auth.scss'
 import { Button } from '../components/button'
+import { UserBox } from '../components/userBox'
 import { Link } from 'react-router-dom'
 import { authContext } from '../App'
 
@@ -20,7 +21,10 @@ export function NewList(){
             <main>
                 <div className="main-content">
                     <img src={logo} alt="Logotipo"/>
-                    <h1>{user?.name}</h1>
+                    
+                    <UserBox />
+                    
+                    
                     <h2>Crie uma nova lista</h2>
                     <form>
                         <input

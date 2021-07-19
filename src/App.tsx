@@ -7,6 +7,7 @@ import { auth, firebase } from './services/firebase'
 type User = {
   id: string
   name: string
+  email: string
   avatar: string
 }
 
@@ -27,15 +28,16 @@ function App() {
       /*  */
     console.log(result)
     if (result.user){
-      const { displayName, photoURL, uid } = result.user
+      const { displayName, photoURL, uid, email } = result.user
 
-      if (!displayName || !photoURL) {
+      if (!displayName || !photoURL || !email) {
         throw new Error('Missing information from Google Account.')
       }
 
       setUser({
         id: uid,
         name: displayName,
+        email: email,
         avatar: photoURL
       })
     }
